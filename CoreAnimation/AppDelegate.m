@@ -8,7 +8,8 @@
 
 #import "AppDelegate.h"
 
-@interface AppDelegate ()
+
+@interface AppDelegate ()<UITabBarControllerDelegate>
 
 @end
 
@@ -17,9 +18,37 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+//    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+//    self.window.backgroundColor = [UIColor whiteColor];
+//    [self.window makeKeyAndVisible];
+//    
+//    UITabBarController *tabBarVC = [[UITabBarController alloc] init];
+//    tabBarVC.delegate = self;
+//    
+//    UIViewController *VC1 = [[UIViewController alloc] init];
+//    VC1.title = @"VC1";
+//    VC1.view.backgroundColor = [UIColor redColor];
+//    
+//    UIViewController *VC2 = [[UIViewController alloc] init];
+//    VC2.title = @"VC2";
+//    VC2.view.backgroundColor = [UIColor purpleColor];
+//    
+//    
+//    tabBarVC.viewControllers = @[VC1,VC2];
+//    
+//    self.window.rootViewController = tabBarVC;
+    
     return YES;
 }
 
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
+    
+    CATransition *transition = [[CATransition alloc] init];
+    transition.type = kCATransitionPush;
+    
+    [tabBarController.view.layer addAnimation:transition forKey:nil];
+    
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

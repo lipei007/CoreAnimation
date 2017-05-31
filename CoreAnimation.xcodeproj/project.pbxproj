@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		420119A91DC86E8C00B1A156 /* mars.png in Resources */ = {isa = PBXBuildFile; fileRef = 420119A81DC86E8C00B1A156 /* mars.png */; };
+		42BB742C1DC1F37F00A78110 /* ReflectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42BB742B1DC1F37F00A78110 /* ReflectionView.m */; };
+		42BB742E1DC1F41100A78110 /* 1001.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 42BB742D1DC1F41100A78110 /* 1001.jpeg */; };
+		42D8DFF81DC0ABEA000D1858 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42D8DFF71DC0ABEA000D1858 /* OpenGLES.framework */; };
+		42D8DFFA1DC0AD63000D1858 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42D8DFF91DC0AD63000D1858 /* GLKit.framework */; };
 		42E9056A1DB852E800A390DC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E905691DB852E800A390DC /* main.m */; };
 		42E9056D1DB852E800A390DC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9056C1DB852E800A390DC /* AppDelegate.m */; };
 		42E905701DB852E800A390DC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9056F1DB852E800A390DC /* ViewController.m */; };
@@ -15,6 +20,7 @@
 		42E905781DB852E800A390DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42E905761DB852E800A390DC /* LaunchScreen.storyboard */; };
 		42E905831DB852E800A390DC /* CoreAnimationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E905821DB852E800A390DC /* CoreAnimationTests.m */; };
 		42E9058E1DB852E800A390DC /* CoreAnimationUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9058D1DB852E800A390DC /* CoreAnimationUITests.m */; };
+		42E9059D1DB8687700A390DC /* myView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9059C1DB8687700A390DC /* myView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +41,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		420119A81DC86E8C00B1A156 /* mars.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mars.png; sourceTree = "<group>"; };
+		42BB742A1DC1F37F00A78110 /* ReflectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReflectionView.h; sourceTree = "<group>"; };
+		42BB742B1DC1F37F00A78110 /* ReflectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReflectionView.m; sourceTree = "<group>"; };
+		42BB742D1DC1F41100A78110 /* 1001.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1001.jpeg; sourceTree = "<group>"; };
+		42D8DFF71DC0ABEA000D1858 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		42D8DFF91DC0AD63000D1858 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		42E905651DB852E800A390DC /* CoreAnimation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreAnimation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42E905691DB852E800A390DC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		42E9056B1DB852E800A390DC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -51,6 +63,8 @@
 		42E905891DB852E800A390DC /* CoreAnimationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreAnimationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		42E9058D1DB852E800A390DC /* CoreAnimationUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreAnimationUITests.m; sourceTree = "<group>"; };
 		42E9058F1DB852E800A390DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		42E9059B1DB8687700A390DC /* myView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myView.h; sourceTree = "<group>"; };
+		42E9059C1DB8687700A390DC /* myView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +72,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42D8DFFA1DC0AD63000D1858 /* GLKit.framework in Frameworks */,
+				42D8DFF81DC0ABEA000D1858 /* OpenGLES.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,13 +94,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		42D8DFF61DC0ABEA000D1858 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				42D8DFF91DC0AD63000D1858 /* GLKit.framework */,
+				42D8DFF71DC0ABEA000D1858 /* OpenGLES.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		42E9055C1DB852E800A390DC = {
 			isa = PBXGroup;
 			children = (
+				420119A81DC86E8C00B1A156 /* mars.png */,
+				42BB742D1DC1F41100A78110 /* 1001.jpeg */,
 				42E905671DB852E800A390DC /* CoreAnimation */,
 				42E905811DB852E800A390DC /* CoreAnimationTests */,
 				42E9058C1DB852E800A390DC /* CoreAnimationUITests */,
 				42E905661DB852E800A390DC /* Products */,
+				42D8DFF61DC0ABEA000D1858 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -110,6 +138,10 @@
 				42E905761DB852E800A390DC /* LaunchScreen.storyboard */,
 				42E905791DB852E800A390DC /* Info.plist */,
 				42E905681DB852E800A390DC /* Supporting Files */,
+				42E9059B1DB8687700A390DC /* myView.h */,
+				42E9059C1DB8687700A390DC /* myView.m */,
+				42BB742A1DC1F37F00A78110 /* ReflectionView.h */,
+				42BB742B1DC1F37F00A78110 /* ReflectionView.m */,
 			);
 			path = CoreAnimation;
 			sourceTree = "<group>";
@@ -247,8 +279,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				42E905781DB852E800A390DC /* LaunchScreen.storyboard in Resources */,
+				420119A91DC86E8C00B1A156 /* mars.png in Resources */,
 				42E905751DB852E800A390DC /* Assets.xcassets in Resources */,
 				42E905731DB852E800A390DC /* Main.storyboard in Resources */,
+				42BB742E1DC1F41100A78110 /* 1001.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,9 +307,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42E9059D1DB8687700A390DC /* myView.m in Sources */,
 				42E905701DB852E800A390DC /* ViewController.m in Sources */,
 				42E9056D1DB852E800A390DC /* AppDelegate.m in Sources */,
 				42E9056A1DB852E800A390DC /* main.m in Sources */,
+				42BB742C1DC1F37F00A78110 /* ReflectionView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,6 +543,7 @@
 				42E905941DB852E800A390DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		42E905951DB852E800A390DC /* Build configuration list for PBXNativeTarget "CoreAnimationTests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +552,7 @@
 				42E905971DB852E800A390DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		42E905981DB852E800A390DC /* Build configuration list for PBXNativeTarget "CoreAnimationUITests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +561,7 @@
 				42E9059A1DB852E800A390DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
