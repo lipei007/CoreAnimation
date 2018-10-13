@@ -11,7 +11,10 @@
 #import <GLKit/GLKit.h>
 #import "ReflectionView.h"
 
-@interface ViewController ()
+@interface ViewController () {
+    CAReplicatorLayer *replicatorLayer;
+    CAShapeLayer *activityLayer;
+}
 
 @property (nonatomic,strong) UIView *containerView;
 
@@ -39,22 +42,26 @@
     
 //    [self presentationLayer];
     
-    UIImage *image = [UIImage imageNamed:@"1001.jepg"];
+//    UIImage *image = [UIImage imageNamed:@"1001.jepg"];
+//
+//    UIImage *mask = [UIImage imageNamed:@"mars.png"];
+//    CGColorSpaceRef graySpace = CGColorSpaceCreateDeviceGray();
+//
+//    CGImageRef maskRef = CGImageCreateCopyWithColorSpace(mask.CGImage, graySpace);
+//
+//    CGImageRef resultRef = CGImageCreateWithMask(image.CGImage, maskRef);
+//    UIImage *result = [UIImage imageWithCGImage:resultRef];
+//    CGImageRelease(resultRef);
+//    CGImageRelease(maskRef);
+//
+//    UIImageView *imageV = [[UIImageView alloc] initWithImage:result];
+//    imageV.frame = CGRectMake(100, 100, 100, 100);
+//    imageV.backgroundColor = [UIColor redColor];
+//    [self.view addSubview:imageV];
     
-    UIImage *mask = [UIImage imageNamed:@"mars.png"];
-    CGColorSpaceRef graySpace = CGColorSpaceCreateDeviceGray();
     
-    CGImageRef maskRef = CGImageCreateCopyWithColorSpace(mask.CGImage, graySpace);
-    
-    CGImageRef resultRef = CGImageCreateWithMask(image.CGImage, maskRef);
-    UIImage *result = [UIImage imageWithCGImage:resultRef];
-    CGImageRelease(resultRef);
-    CGImageRelease(maskRef);
-    
-    UIImageView *imageV = [[UIImageView alloc] initWithImage:result];
-    imageV.frame = CGRectMake(100, 100, 100, 100);
-    imageV.backgroundColor = [UIColor redColor];
-    [self.view addSubview:imageV];
+    [self addLayer];
+    [self addActivityLayer];
 }
 
 
@@ -62,6 +69,71 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - ReplicatorLayer
+
+- (void)addLayer {
+    //初始化添加复制图层
+    replicatorLayer = [CAReplicatorLayer layer];
+    replicatorLayer.bounds = CGRectMake(100, 100, 300, 300);
+    replicatorLayer.position = self.view.center;
+    replicatorLayer.backgroundColor = [UIColor clearColor].CGColor;
+    [self.view.layer addSublayer:replicatorLayer];
+    [self addActivityLayer];
+}
+
+- (void)addActivityLayer {
+    activityLayer = [CAShapeLayer layer];
+    
+    //使用贝塞尔曲线绘制矩形路径
+    UIBezierPath *path = [UIBezierPath bezierPath];
+    [path moveToPoint:CGPointMake(self.view.center.x, self.view.center.y/2)];
+    [path addLineToPoint:CGPointMake(self.view.center.x + 20, self.view.center.y/2)];
+    [path addLineToPoint:CGPointMake(self.view.center.x + 10, self.view.center.y/2 + 20)];
+    [path addLineToPoint:CGPointMake(self.view.center.x - 10 , self.view.center.y/2 + 20)];
+    [path closePath];
+    activityLayer.fillColor = [UIColor redColor].CGColor;
+    activityLayer.path = path.CGPath;
+    //设置图层不可见
+    activityLayer.transform = CATransform3DMakeScale(0.01, 0.01, 0.01);
+    
+    [replicatorLayer addSublayer:activityLayer];
+    
+    //复制的图层数为三个
+    replicatorLayer.instanceCount = 3;
+    //设置每个复制图层延迟时间
+    replicatorLayer.instanceDelay = 1.f / 3.f;
+    //设置每个图层之间的偏移
+    replicatorLayer.instanceTransform = CATransform3DMakeTranslation(35, 0, 0);
+}
+
+- (CABasicAnimation *)alphaAnimation{
+    //设置透明度动画
+    CABasicAnimation *alpha = [CABasicAnimation animationWithKeyPath:@"opacity"];
+    alpha.fromValue = @1.0;
+    alpha.toValue = @0.01;
+    alpha.duration = 1.f;
+    return alpha;
+}
+
+- (CABasicAnimation *)activityScaleAnimation{
+    //设置缩放动画
+    CABasicAnimation *scale = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    scale.toValue = @1;
+    scale.fromValue = @1;
+    return scale;
+}
+
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    
+    //设置动画组，并执行动画
+    CAAnimationGroup *group = [CAAnimationGroup animation];
+    group.animations = @[[self alphaAnimation],[self activityScaleAnimation]];
+    group.duration = 1.f;
+    group.repeatCount = HUGE;
+    [activityLayer addAnimation:group forKey:@""];
+    
 }
 
 #pragma mark - 固体
